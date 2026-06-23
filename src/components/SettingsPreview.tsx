@@ -36,7 +36,7 @@ export function SettingsPreview({
         <img 
           src={originalPreview} 
           alt="Original preview" 
-          className="max-w-full max-h-full object-contain"
+          className="max-w-full max-h-full object-contain animate-in fade-in duration-300"
         />
       </div>
       

@@ -59,7 +59,7 @@ export function Result({
           <img 
             src={compressedPreview} 
             alt="Compressed preview" 
-            className="max-w-full max-h-full object-contain"
+            className="max-w-full max-h-full object-contain animate-in fade-in duration-300"
           />
         ) : (
           <div className="text-prismatic-textSecondary flex flex-col items-center">
@@ -87,7 +87,7 @@ export function Result({
         <button 
           onClick={handleDownload}
           disabled={!compressedFile || isCompressing}
-          className="btn-gradient w-full py-2.5 h-auto text-[15px] flex items-center justify-center gap-2"
+          className="btn-gradient w-full py-2.5 h-auto text-[15px] flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-transform duration-200"
         >
           <Download size={18} />
           Download Compressed Image

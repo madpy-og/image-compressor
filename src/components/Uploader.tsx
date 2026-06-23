@@ -44,12 +44,12 @@ export function Uploader({ onFileSelect }: UploaderProps) {
   }, [onFileSelect]);
 
   return (
-    <div className="card w-full max-w-2xl mx-auto mt-10">
+    <div className="w-full max-w-2xl mx-auto">
       <div 
-        className={`border-2 border-dashed rounded-xl p-10 flex flex-col items-center justify-center transition-colors duration-200 cursor-pointer ${
+        className={`border-2 border-dashed rounded-xl p-10 flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
           isDragging 
-            ? 'border-prismatic-primary bg-prismatic-primary/5' 
-            : 'border-prismatic-border hover:border-prismatic-primary/50 bg-prismatic-surface'
+            ? 'border-prismatic-primary bg-prismatic-primary/10 scale-[1.02] shadow-level-1' 
+            : 'border-prismatic-border hover:border-prismatic-primary/50 hover:bg-white bg-prismatic-surface'
         }`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}

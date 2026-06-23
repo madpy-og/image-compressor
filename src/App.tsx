@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import imageCompression from 'browser-image-compression';
+import { compressImage } from './utils/compressImage';
 import { Uploader } from './components/Uploader';
 import { SettingsPreview } from './components/SettingsPreview';
 import { Result } from './components/Result';
@@ -25,25 +25,13 @@ function App() {
     setQuality(80); // Reset to default quality
   };
 
-  const compressImage = async (file: File, q: number) => {
+  const handleCompress = async (file: File, q: number) => {
     setIsCompressing(true);
     try {
-      const options = {
-        maxSizeMB: 10,
-        maxWidthOrHeight: 1920,
-        useWebWorker: true,
-        initialQuality: q / 100,
-      };
-      
-      const compressedBlob = await imageCompression(file, options);
-      const compressedFile = new File([compressedBlob], file.name, {
-        type: compressedBlob.type,
-      });
-      
-      setCompressedFile(compressedFile);
-      setCompressedPreview(URL.createObjectURL(compressedBlob));
+      const result = await compressImage(file, q);
+      setCompressedFile(result.file);
+      setCompressedPreview(result.previewUrl);
     } catch (error) {
-      console.error('Error compressing image:', error);
       alert('Failed to compress image. Please try again.');
     } finally {
       setIsCompressing(false);
@@ -54,7 +42,7 @@ function App() {
   useEffect(() => {
     if (originalFile) {
       const timer = setTimeout(() => {
-        compressImage(originalFile, quality);
+        handleCompress(originalFile, quality);
       }, 500); // Debounce quality slider
       
       return () => clearTimeout(timer);

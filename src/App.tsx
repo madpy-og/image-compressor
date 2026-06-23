@@ -4,6 +4,7 @@ import { Uploader } from './components/Uploader';
 import { SettingsPreview } from './components/SettingsPreview';
 import { Result } from './components/Result';
 import { Hero } from './components/Hero';
+import { Navbar } from './components/Navbar';
 import { ComparisonSlider } from './components/ComparisonSlider';
 
 function App() {
@@ -58,7 +59,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-discord-canvas flex flex-col font-sans">
+    <div className="min-h-screen bg-discord-canvas flex flex-col font-sans" id="home">
+      <Navbar />
       <Hero />
 
       {/* Main Content Area */}
@@ -66,7 +68,7 @@ function App() {
         <div className="max-w-5xl mx-auto">
           {!originalFile ? (
             <>
-              <div className="bg-discord-surface1 rounded-[16px] p-6 md:p-8 border border-discord-border max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
+              <div id="uploader" className="bg-discord-surface1 rounded-[16px] p-6 md:p-8 border border-discord-border max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 scroll-mt-24">
                 {/* CTA Text - Hidden on mobile, visible on desktop to fill space */}
                 <div className="hidden md:block flex-1 pr-4">
                   <h2 className="text-2xl font-bold text-discord-onPrimary mb-3">
@@ -83,7 +85,9 @@ function App() {
                 </div>
               </div>
 
-              <ComparisonSlider />
+              <div id="compare" className="scroll-mt-24">
+                <ComparisonSlider />
+              </div>
             </>
           ) : (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">

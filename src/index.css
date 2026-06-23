@@ -30,6 +30,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-discord-canvas text-discord-ink font-sans antialiased;
   }

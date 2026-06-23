@@ -1,0 +1,83 @@
+import React, { useCallback, useState } from 'react';
+import { UploadCloud } from 'lucide-react';
+
+interface UploaderProps {
+  onFileSelect: (file: File) => void;
+}
+
+export function Uploader({ onFileSelect }: UploaderProps) {
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  }, []);
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  }, []);
+
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      const file = e.dataTransfer.files[0];
+      if (file.type.startsWith('image/')) {
+        onFileSelect(file);
+      } else {
+        alert('Please upload an image file');
+      }
+    }
+  }, [onFileSelect]);
+
+  const handleFileInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      if (file.type.startsWith('image/')) {
+        onFileSelect(file);
+      } else {
+        alert('Please upload an image file');
+      }
+    }
+  }, [onFileSelect]);
+
+  return (
+    <div className="card w-full max-w-2xl mx-auto mt-10">
+      <div 
+        className={`border-2 border-dashed rounded-xl p-10 flex flex-col items-center justify-center transition-colors duration-200 cursor-pointer ${
+          isDragging 
+            ? 'border-prismatic-primary bg-prismatic-primary/5' 
+            : 'border-prismatic-border hover:border-prismatic-primary/50 bg-prismatic-surface'
+        }`}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
+        onClick={() => document.getElementById('file-upload')?.click()}
+      >
+        <div className="bg-white p-4 rounded-full shadow-level-1 mb-4 text-prismatic-primary">
+          <UploadCloud size={32} />
+        </div>
+        <h3 className="text-lg font-semibold text-prismatic-textPrimary mb-2">
+          Drag & drop your image here
+        </h3>
+        <p className="text-prismatic-textSecondary text-sm mb-6 text-center max-w-sm">
+          Supports JPG, PNG, WebP. Maximum file size 10MB.
+        </p>
+        
+        <input 
+          id="file-upload" 
+          type="file" 
+          accept="image/*" 
+          className="hidden" 
+          onChange={handleFileInput}
+        />
+        
+        <button className="btn-primary px-6">
+          Browse Files
+        </button>
+      </div>
+    </div>
+  );
+}

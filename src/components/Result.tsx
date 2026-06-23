@@ -45,14 +45,14 @@ export function Result({
   return (
     <div className="card w-full h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
-        <Zap className="text-prismatic-warning" size={20} />
-        <h3 className="text-lg font-semibold text-prismatic-textPrimary">Compressed Result</h3>
+        <Zap className="text-discord-online" size={20} />
+        <h3 className="text-lg font-semibold text-discord-onPrimary">Compressed Result</h3>
       </div>
 
-      <div className="bg-prismatic-surface rounded-lg overflow-hidden flex items-center justify-center h-48 mb-4 border border-prismatic-border relative flex-grow min-h-[12rem]">
+      <div className="bg-discord-surface2 rounded-lg overflow-hidden flex items-center justify-center h-48 mb-4 border border-discord-border relative flex-grow min-h-[12rem]">
         {isCompressing ? (
-          <div className="flex flex-col items-center justify-center text-prismatic-primary">
-            <div className="w-8 h-8 border-4 border-prismatic-primary/20 border-t-prismatic-primary rounded-full animate-spin mb-2"></div>
+          <div className="flex flex-col items-center justify-center text-discord-primary">
+            <div className="w-8 h-8 border-4 border-discord-primary/20 border-t-discord-primary rounded-full animate-spin mb-2"></div>
             <span className="text-sm font-medium">Compressing...</span>
           </div>
         ) : compressedPreview ? (
@@ -62,7 +62,7 @@ export function Result({
             className="max-w-full max-h-full object-contain animate-in fade-in duration-300"
           />
         ) : (
-          <div className="text-prismatic-textSecondary flex flex-col items-center">
+          <div className="text-discord-inkMuted flex flex-col items-center">
             <ImageIcon size={32} className="mb-2 opacity-50" />
             <span className="text-sm">Preview will appear here</span>
           </div>
@@ -70,20 +70,20 @@ export function Result({
       </div>
 
       <div className="flex justify-between items-center mb-4 text-sm">
-        <span className="text-prismatic-textSecondary font-medium">New Size</span>
+        <span className="text-discord-inkMuted font-medium">New Size</span>
         <div className="flex items-center gap-3">
           {compressedFile && !isCompressing && (
-            <span className="text-prismatic-success font-semibold bg-prismatic-success/10 px-2 py-1 rounded text-xs">
+            <span className="text-discord-online font-semibold bg-discord-online/10 px-2 py-1 rounded text-xs">
               -{calculateSavings()}%
             </span>
           )}
-          <span className="font-mono text-prismatic-textPrimary font-semibold bg-prismatic-surface px-2 py-1 rounded">
+          <span className="font-mono text-discord-ink font-semibold bg-discord-surface2 px-2 py-1 rounded">
             {compressedFile && !isCompressing ? formatBytes(compressedFile.size) : '---'}
           </span>
         </div>
       </div>
 
-      <div className="mt-auto pt-4 border-t border-prismatic-border">
+      <div className="mt-auto pt-4 border-t border-discord-border">
         <button 
           onClick={handleDownload}
           disabled={!compressedFile || isCompressing}

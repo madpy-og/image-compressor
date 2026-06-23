@@ -21,7 +21,7 @@ export function Uploader({ onFileSelect }: UploaderProps) {
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
-    
+
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       const file = e.dataTransfer.files[0];
       if (file.type.startsWith('image/')) {
@@ -44,36 +44,35 @@ export function Uploader({ onFileSelect }: UploaderProps) {
   }, [onFileSelect]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <div 
-        className={`border-2 border-dashed rounded-xl p-10 flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
-          isDragging 
-            ? 'border-prismatic-primary bg-prismatic-primary/10 scale-[1.02] shadow-level-1' 
-            : 'border-prismatic-border hover:border-prismatic-primary/50 hover:bg-white bg-prismatic-surface'
-        }`}
+    <div className="w-full h-full">
+      <div
+        className={`border-2 border-dashed rounded-xl p-10 flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${isDragging
+          ? 'border-discord-primary bg-discord-primary/10 scale-[1.02]'
+          : 'border-discord-border hover:border-discord-primary/50 bg-discord-surface1'
+          }`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         onClick={() => document.getElementById('file-upload')?.click()}
       >
-        <div className="bg-white p-4 rounded-full shadow-level-1 mb-4 text-prismatic-primary">
+        <div className="bg-discord-surface1 p-4 rounded-full mb-4 text-discord-primary">
           <UploadCloud size={32} />
         </div>
-        <h3 className="text-lg font-semibold text-prismatic-textPrimary mb-2">
+        <h3 className="text-lg font-semibold text-discord-onPrimary mb-2">
           Drag & drop your image here
         </h3>
-        <p className="text-prismatic-textSecondary text-sm mb-6 text-center max-w-sm">
+        <p className="text-discord-inkMuted text-sm mb-6 text-center max-w-sm">
           Supports JPG, PNG, WebP. Maximum file size 10MB.
         </p>
-        
-        <input 
-          id="file-upload" 
-          type="file" 
-          accept="image/*" 
-          className="hidden" 
+
+        <input
+          id="file-upload"
+          type="file"
+          accept="image/*"
+          className="hidden"
           onChange={handleFileInput}
         />
-        
+
         <button className="btn-primary px-6">
           Browse Files
         </button>

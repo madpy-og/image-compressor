@@ -28,11 +28,11 @@ export function SettingsPreview({
   return (
     <div className="card w-full">
       <div className="flex items-center gap-2 mb-4">
-        <ImageIcon className="text-prismatic-secondary" size={20} />
-        <h3 className="text-lg font-semibold text-prismatic-textPrimary">Original Image</h3>
+        <ImageIcon className="text-discord-inkMuted" size={20} />
+        <h3 className="text-lg font-semibold text-discord-onPrimary">Original Image</h3>
       </div>
       
-      <div className="bg-prismatic-surface rounded-lg overflow-hidden flex items-center justify-center h-48 mb-4 border border-prismatic-border">
+      <div className="bg-discord-surface2 rounded-lg overflow-hidden flex items-center justify-center h-48 mb-4 border border-discord-border">
         <img 
           src={originalPreview} 
           alt="Original preview" 
@@ -41,22 +41,22 @@ export function SettingsPreview({
       </div>
       
       <div className="flex justify-between items-center mb-6 text-sm">
-        <span className="text-prismatic-textSecondary font-medium">Size</span>
-        <span className="font-mono text-prismatic-textPrimary font-semibold bg-prismatic-surface px-2 py-1 rounded">
+        <span className="text-discord-inkMuted font-medium">Size</span>
+        <span className="font-mono text-discord-ink font-semibold bg-discord-surface2 px-2 py-1 rounded">
           {formatBytes(originalFile.size)}
         </span>
       </div>
 
-      <div className="border-t border-prismatic-border pt-4 mt-2">
+      <div className="border-t border-discord-border pt-4 mt-2">
         <div className="flex items-center gap-2 mb-4">
-          <Settings className="text-prismatic-secondary" size={20} />
-          <h3 className="text-lg font-semibold text-prismatic-textPrimary">Compression Settings</h3>
+          <Settings className="text-discord-inkMuted" size={20} />
+          <h3 className="text-lg font-semibold text-discord-onPrimary">Compression Settings</h3>
         </div>
         
         <div className="mb-2">
           <div className="flex justify-between items-center mb-2">
             <label htmlFor="quality" className="label-text mb-0">Quality</label>
-            <span className="text-sm font-semibold text-prismatic-primary">{quality}%</span>
+            <span className="text-sm font-semibold text-discord-primary">{quality}%</span>
           </div>
           <input 
             id="quality"
@@ -65,9 +65,9 @@ export function SettingsPreview({
             max="100" 
             value={quality}
             onChange={(e) => onQualityChange(Number(e.target.value))}
-            className="w-full h-2 bg-prismatic-border rounded-lg appearance-none cursor-pointer accent-prismatic-primary"
+            className="w-full h-2 bg-discord-surface3 rounded-lg appearance-none cursor-pointer accent-discord-primary"
           />
-          <div className="flex justify-between text-xs text-prismatic-textSecondary mt-1">
+          <div className="flex justify-between text-xs text-discord-inkMuted mt-1">
             <span>Low Quality</span>
             <span>High Quality</span>
           </div>

@@ -32,6 +32,7 @@ function App() {
       setCompressedFile(result.file);
       setCompressedPreview(result.previewUrl);
     } catch (error) {
+      console.error('Failed to compress image:', error);
       alert('Failed to compress image. Please try again.');
     } finally {
       setIsCompressing(false);
@@ -57,7 +58,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-prismatic-surface flex flex-col font-sans">
+    <div className="min-h-screen bg-discord-canvas flex flex-col font-sans">
       <Hero />
 
       {/* Main Content Area */}
@@ -65,20 +66,33 @@ function App() {
         <div className="max-w-5xl mx-auto">
           {!originalFile ? (
             <>
-              <div className="bg-white rounded-[16px] shadow-level-3 p-6 md:p-8 border border-prismatic-border">
-                <Uploader onFileSelect={handleFileSelect} />
+              <div className="bg-discord-surface1 rounded-[16px] p-6 md:p-8 border border-discord-border max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                {/* CTA Text - Hidden on mobile, visible on desktop to fill space */}
+                <div className="hidden md:block flex-1 pr-4">
+                  <h2 className="text-2xl font-bold text-discord-onPrimary mb-3">
+                    Start optimizing now
+                  </h2>
+                  <p className="text-discord-inkMuted text-[15px] leading-relaxed">
+                    Drop your high-resolution images here. Our advanced engine will instantly reduce file sizes without sacrificing quality—all safely inside your browser.
+                  </p>
+                </div>
+                
+                {/* Uploader Component */}
+                <div className="w-full md:w-1/2 lg:w-[28rem] flex-shrink-0">
+                  <Uploader onFileSelect={handleFileSelect} />
+                </div>
               </div>
-              
+
               <Features />
             </>
           ) : (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <div className="flex justify-between items-center bg-white p-6 rounded-xl border border-prismatic-border shadow-level-2">
+              <div className="flex justify-between items-center bg-discord-surface1 p-6 rounded-xl border border-discord-border shadow-level-2">
                 <div className="flex flex-col">
-                  <span className="font-semibold text-[16px] text-prismatic-textPrimary truncate mr-4">
+                  <span className="font-semibold text-[16px] text-discord-onPrimary truncate mr-4">
                     {originalFile.name}
                   </span>
-                  <span className="text-[13px] text-prismatic-textSecondary mt-0.5">
+                  <span className="text-[13px] text-discord-inkMuted mt-0.5">
                     Ready for compression
                   </span>
                 </div>
@@ -111,8 +125,8 @@ function App() {
       </div>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-prismatic-border text-center text-prismatic-textSecondary text-sm">
-        <p>Built with React, Vite, and Prismatic Pay Design System.</p>
+      <footer className="py-8 border-t border-discord-border text-center text-discord-inkMuted text-sm">
+        <p>Built with React, Vite, and Discord-inspired Design System.</p>
       </footer>
     </div>
   );

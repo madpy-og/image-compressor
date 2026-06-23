@@ -1,4 +1,3 @@
-import React from 'react';
 import { Settings, Image as ImageIcon } from 'lucide-react';
 
 interface SettingsPreviewProps {

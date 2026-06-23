@@ -68,7 +68,7 @@ function App() {
         <div className="max-w-5xl mx-auto">
           {!originalFile ? (
             <>
-              <div id="uploader" className="bg-discord-surface1 rounded-[16px] p-6 md:p-8 border border-discord-border max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 scroll-mt-24">
+              <div id="uploader" className="bg-discord-surface1 rounded-[16px] p-6 md:p-8 border border-discord-border max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 scroll-mt-24 shadow-level-2">
                 {/* CTA Text - Hidden on mobile, visible on desktop to fill space */}
                 <div className="hidden md:block flex-1 pr-4">
                   <h2 className="text-2xl font-bold text-discord-onPrimary mb-3">

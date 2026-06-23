@@ -1,4 +1,3 @@
-import React from 'react';
 import { Download, Zap, ImageIcon } from 'lucide-react';
 
 interface ResultProps {
@@ -17,11 +16,11 @@ function formatBytes(bytes: number, decimals = 2) {
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 }
 
-export function Result({ 
-  originalFile, 
-  compressedFile, 
-  compressedPreview, 
-  isCompressing 
+export function Result({
+  originalFile,
+  compressedFile,
+  compressedPreview,
+  isCompressing
 }: ResultProps) {
   if (!originalFile) return null;
 
@@ -45,7 +44,7 @@ export function Result({
   return (
     <div className="card w-full h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
-        <Zap className="text-discord-online" size={20} />
+        <Zap className="text-discord-inkMuted" size={20} />
         <h3 className="text-lg font-semibold text-discord-onPrimary">Compressed Result</h3>
       </div>
 
@@ -56,9 +55,9 @@ export function Result({
             <span className="text-sm font-medium">Compressing...</span>
           </div>
         ) : compressedPreview ? (
-          <img 
-            src={compressedPreview} 
-            alt="Compressed preview" 
+          <img
+            src={compressedPreview}
+            alt="Compressed preview"
             className="max-w-full max-h-full object-contain animate-in fade-in duration-300"
           />
         ) : (
@@ -84,7 +83,7 @@ export function Result({
       </div>
 
       <div className="mt-auto pt-4 border-t border-discord-border">
-        <button 
+        <button
           onClick={handleDownload}
           disabled={!compressedFile || isCompressing}
           className="btn-gradient w-full py-2.5 h-auto text-[15px] flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-transform duration-200"

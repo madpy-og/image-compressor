@@ -37,6 +37,10 @@
   body {
     @apply bg-discord-canvas text-discord-ink font-sans antialiased;
   }
+
+  button, a {
+    @apply cursor-pointer;
+  }
 }
 
 @layer components {
@@ -58,7 +62,7 @@
   }
 
   .card {
-    @apply bg-discord-surface1 border border-discord-border rounded-xl p-6 transition-shadow duration-200 ease-in-out;
+    @apply bg-discord-surface1 border border-discord-border rounded-xl p-6 shadow-level-2 transition-shadow duration-200 ease-in-out;
   }
 
   .card-hover {

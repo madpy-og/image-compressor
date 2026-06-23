@@ -18,7 +18,7 @@ export function Hero() {
         </h1>
 
         <p className="text-discord-inkMuted text-[17px] leading-[28px] max-w-2xl mx-auto mb-10 font-normal tracking-[0.01em]">
-          ImageShrink is a premium, engineering-grade image compression tool. Your files never leave your device. We use advanced Web Workers to compress your images securely right inside your browser.
+          Super Compressor is a premium, engineering-grade image compression tool. Your files never leave your device. We use advanced Web Workers to compress your images securely right inside your browser.
         </p>
       </div>
     </div>

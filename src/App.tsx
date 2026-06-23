@@ -66,7 +66,7 @@ function App() {
         <div className="max-w-5xl mx-auto">
           {!originalFile ? (
             <>
-              <div className="bg-discord-surface1 rounded-[16px] p-6 md:p-8 border border-discord-border max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+              <div className="bg-discord-surface1 rounded-[16px] p-6 md:p-8 border border-discord-border max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
                 {/* CTA Text - Hidden on mobile, visible on desktop to fill space */}
                 <div className="hidden md:block flex-1 pr-4">
                   <h2 className="text-2xl font-bold text-discord-onPrimary mb-3">
@@ -76,7 +76,7 @@ function App() {
                     Drop your high-resolution images here. Our advanced engine will instantly reduce file sizes without sacrificing quality—all safely inside your browser.
                   </p>
                 </div>
-                
+
                 {/* Uploader Component */}
                 <div className="w-full md:w-1/2 lg:w-[28rem] flex-shrink-0">
                   <Uploader onFileSelect={handleFileSelect} />
@@ -126,7 +126,7 @@ function App() {
 
       {/* Footer */}
       <footer className="py-8 border-t border-discord-border text-center text-discord-inkMuted text-sm">
-        <p>Built with React, Vite, and Discord-inspired Design System.</p>
+        <p>Copyright © 2026 Super Compressor. All rights reserved.</p>
       </footer>
     </div>
   );

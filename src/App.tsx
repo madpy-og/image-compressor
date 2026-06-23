@@ -91,8 +91,8 @@ function App() {
             </>
           ) : (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <div className="flex justify-between items-center bg-discord-surface1 p-6 rounded-xl border border-discord-border shadow-level-2">
-                <div className="flex flex-col">
+              <div className="flex justify-between items-center bg-discord-surface1 p-6 rounded-xl border border-discord-border shadow-level-2 gap-4">
+                <div className="flex flex-col min-w-0">
                   <span className="font-semibold text-[16px] text-discord-onPrimary truncate mr-4">
                     {originalFile.name}
                   </span>

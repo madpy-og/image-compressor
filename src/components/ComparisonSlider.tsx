@@ -15,7 +15,7 @@ export function ComparisonSlider() {
         </p>
       </div>
 
-      <div className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-level-3 border border-discord-border bg-discord-surface1 select-none">
+      <div className="relative w-full aspect-square sm:aspect-[4/3] md:aspect-[21/9] rounded-2xl overflow-hidden shadow-level-3 border border-discord-border bg-discord-surface1 select-none">
 
         {/* Base Image (Original - Left Side of Slider) */}
         <div className="absolute inset-0 w-full h-full">

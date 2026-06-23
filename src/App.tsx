@@ -4,7 +4,7 @@ import { Uploader } from './components/Uploader';
 import { SettingsPreview } from './components/SettingsPreview';
 import { Result } from './components/Result';
 import { Hero } from './components/Hero';
-import { Features } from './components/Features';
+import { ComparisonSlider } from './components/ComparisonSlider';
 
 function App() {
   const [originalFile, setOriginalFile] = useState<File | null>(null);
@@ -83,7 +83,7 @@ function App() {
                 </div>
               </div>
 
-              <Features />
+              <ComparisonSlider />
             </>
           ) : (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">

@@ -3,7 +3,8 @@ import { compressImage } from './utils/compressImage';
 import { Uploader } from './components/Uploader';
 import { SettingsPreview } from './components/SettingsPreview';
 import { Result } from './components/Result';
-import { Shield, Zap, Lock, Code } from 'lucide-react';
+import { Hero } from './components/Hero';
+import { Features } from './components/Features';
 
 function App() {
   const [originalFile, setOriginalFile] = useState<File | null>(null);
@@ -57,28 +58,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-prismatic-surface flex flex-col font-sans">
-      {/* Hero Section (Navy Background) */}
-      <div className="bg-prismatic-surface relative overflow-hidden py-30 px-4 sm:px-6 lg:px-8 border-b border-prismatic-border/10">
-        {/* Subtle Gradient Overlay */}
-
-        <div className="max-w-5xl mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-prismatic-primary/10 text-prismatic-textPrimary text-sm font-medium mb-8 border border-prismatic-primary/20">
-            <Zap size={16} className="text-prismatic-primary" />
-            <span>100% Client-Side Compression</span>
-          </div>
-
-          <h1 className="text-prismatic-textPrimary font-bold tracking-[-0.03em] text-[40px] leading-[48px] md:text-[60px] md:leading-[68px] mb-6">
-            Compress Images with <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#635BFF] to-[#A259FF]">
-              Zero Server Processing
-            </span>
-          </h1>
-
-          <p className="text-prismatic-textSecondary text-[17px] leading-[28px] max-w-2xl mx-auto mb-10 font-normal tracking-[0.01em]">
-            ImageShrink is a premium, engineering-grade image compression tool. Your files never leave your device. We use advanced Web Workers to compress your images securely right inside your browser.
-          </p>
-        </div>
-      </div>
+      <Hero />
 
       {/* Main Content Area */}
       <div className="flex-grow pb-24 px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
@@ -88,37 +68,8 @@ function App() {
               <div className="bg-white rounded-[16px] shadow-level-3 p-6 md:p-8 border border-prismatic-border">
                 <Uploader onFileSelect={handleFileSelect} />
               </div>
-
-              {/* Features Section */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24 max-w-4xl mx-auto">
-                <div className="text-center">
-                  <div className="bg-prismatic-surface border border-prismatic-border w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6 text-prismatic-primary shadow-sm">
-                    <Lock size={24} />
-                  </div>
-                  <h3 className="text-prismatic-textPrimary font-semibold text-[20px] mb-3">Absolute Privacy</h3>
-                  <p className="text-prismatic-textSecondary text-[15px] leading-[24px]">
-                    Your images are processed entirely on your local machine. No data is ever uploaded to our servers.
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-prismatic-surface border border-prismatic-border w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6 text-prismatic-primary shadow-sm">
-                    <Zap size={24} />
-                  </div>
-                  <h3 className="text-prismatic-textPrimary font-semibold text-[20px] mb-3">Lightning Fast</h3>
-                  <p className="text-prismatic-textSecondary text-[15px] leading-[24px]">
-                    Leveraging Web Workers, compression happens in the background without blocking your browser UI.
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-prismatic-surface border border-prismatic-border w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6 text-prismatic-primary shadow-sm">
-                    <Code size={24} />
-                  </div>
-                  <h3 className="text-prismatic-textPrimary font-semibold text-[20px] mb-3">Developer Grade</h3>
-                  <p className="text-prismatic-textSecondary text-[15px] leading-[24px]">
-                    Built for engineers with meticulous attention to detail, performance, and typography.
-                  </p>
-                </div>
-              </div>
+              
+              <Features />
             </>
           ) : (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
